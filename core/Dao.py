@@ -1,0 +1,24 @@
+from core.File import File
+
+class Dao:
+    def __init__(self):
+        self.db_file = File()
+        self.db_contents = self.db_file.read_file()  #{'contacts':[{}, {}, {}]}
+
+    def save_contact(self, dict):
+        print(f'DEBUG 1: self.db_contents = {self.db_contents}')
+        self.db_contents['contacts'].append(dict)
+        self.save_file(self.db_contents)
+
+    def save_file(self, contents):
+        self.db_file.save_file(contents)
+        
+    def search(self, name):
+        self.db_contents = self.db_contents['contacts']
+        search_result = []
+        for contact in self.db_contents:
+            if name.casefold() == contact['name'].casefold():
+                search_result.append(contact)
+        return search_result
+    
+    
