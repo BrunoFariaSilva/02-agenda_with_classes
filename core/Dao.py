@@ -3,10 +3,9 @@ from core.File import File
 class Dao:
     def __init__(self):
         self.db_file = File()
-        self.db_contents = self.db_file.read_file()  #{'contacts':[{}, {}, {}]}
+        self.db_contents = self.db_file.read_file()
 
     def save_contact(self, dict):
-        print(f'DEBUG 1: self.db_contents = {self.db_contents}')
         self.db_contents['contacts'].append(dict)
         self.save_file(self.db_contents)
 
@@ -20,5 +19,4 @@ class Dao:
             if name.casefold() == contact['name'].casefold():
                 search_result.append(contact)
         return search_result
-    
     

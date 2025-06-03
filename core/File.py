@@ -25,11 +25,8 @@ class File:
     def read_file(self):
         with open(self.json_file, 'r', newline='\n') as file_to_read:
             file_contents = json.load(file_to_read)
-        
-        print(f'DEBUG 2: file_contents = {file_contents}')
         return file_contents
 
     def save_file(self, dict):
         with open(self.json_file, 'w', newline='\n') as file_to_save:
             json.dump(dict, file_to_save, indent=4)
-            

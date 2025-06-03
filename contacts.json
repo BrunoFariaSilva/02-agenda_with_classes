@@ -2,23 +2,11 @@
     "contacts": [
         {
             "name": "Bruno",
-            "phone": "999999"
+            "phone": "111111111"
         },
         {
-            "name": "Lucas",
-            "phone": "888888"
-        },
-        {
-            "name": "Bruno",
-            "phone": "Faria"
-        },
-        {
-            "name": "Bruno_Faria",
-            "phone": "777777"
-        },
-        {
-            "name": "Bruno",
-            "phone": "55555555"
+            "name": "Bruno Faria Da Silva",
+            "phone": "98761358795"
         }
     ]
 }

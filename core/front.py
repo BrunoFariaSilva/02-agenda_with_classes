@@ -1,5 +1,10 @@
+program_name = 'main.py'
+
 def __clear_screen():
-    print('\n' * 30)
+    from core.common import read_config
+    config_contents = read_config()
+    lines_to_cls = int(config_contents.get('general', 'lines_to_cls'))
+    print('\n' * lines_to_cls)
 
 def __show_header():
     print('AGENDA DE TELEFONES DO SEU JOÃO')
@@ -17,3 +22,23 @@ def show_search_result(list):
         for index, contact in enumerate(list):
             print(f'{index+1} - Nome: {contact['name']} \tTelefone: {contact['phone']}')
         print('\n')
+
+def show_usage():
+    __show_header()
+    print('Usage:\n')
+    print(f'{program_name} <command> <options>|<contact infos>\n')
+    print('Commands: add\tAdd a new contact to data base')
+    print('\tmodify\tChange contact name and/or phone number')
+    print('\tdel\tDelete one contact from data base')
+    print('\tsearch\tSearch for a contact by name\n')
+    print('Examples:\n')
+    print(f'- Adding a new contact: "{program_name} add contact_name contact_phone_number"')
+    print(f'- Modifing a contact: "{program_name} modify contact_name"')
+    print(f'- Deleting a contact: "{program_name} del contact_name"')
+    print(f'- Searching a contact: "{program_name} search contact_name"')
+
+def final_message():
+    print('\nPrograma finalizado.\n\n')
+
+def show_message(msg):
+    print(f'\n\x1b[6;30;42m' + msg + '\x1b[0m\n')  #bgcolor = green; font collor = black
