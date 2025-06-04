@@ -7,9 +7,9 @@ class Dao:
 
     def save_contact(self, dict):
         self.db_contents['contacts'].append(dict)
-        self.save_file(self.db_contents)
+        self.__save_file(self.db_contents)
 
-    def save_file(self, contents):
+    def __save_file(self, contents):
         self.db_file.save_file(contents)
         
     def search(self, name):
