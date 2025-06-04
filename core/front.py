@@ -24,6 +24,7 @@ def show_search_result(list):
         print('\n')
 
 def show_usage():
+    print('\n')
     __show_header()
     print('Usage:\n')
     print(f'{program_name} <command> <options>|<contact infos>\n')
@@ -31,11 +32,16 @@ def show_usage():
     print('\tmodify\tChange contact name and/or phone number')
     print('\tdel\tDelete one contact from data base')
     print('\tsearch\tSearch for a contact by name\n')
+    print('\tlistall\tList all contacts\n')
     print('Examples:\n')
     print(f'- Adding a new contact: "{program_name} add contact_name contact_phone_number"')
     print(f'- Modifing a contact: "{program_name} modify contact_name"')
     print(f'- Deleting a contact: "{program_name} del contact_name"')
     print(f'- Searching a contact: "{program_name} search contact_name"')
+    print(f'- List all contacts: "{program_name} listall"')
+    print(f'- List all contacts: "{program_name} listall"')
+    print(f'\nTo list all contacts with certain letter, use search command and desired\nletter as option: Type "{program_name} search b" to search all contacts with "b" letter')
+    print(f'\nYou can search by name part. Type "{program_name} search Crist" to search for "Cristopher"')
 
 def final_message():
     print('\nPrograma finalizado.\n\n')

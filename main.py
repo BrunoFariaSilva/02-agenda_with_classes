@@ -10,9 +10,10 @@ brunofariasilva@gmail.com
 31/05/2025 - 
 
 Problemas conhecidos:
-1 - Checagem de argumentos ainda não funciona corretamente
-2 - Busca por parte do nome não funciona
-3 - 
+1 - Busca por parte do nome não funciona
+2 - Falta implementar a alteração do contato
+3 - Falta implementar a exclusão do contato
+4 - Falta implementar a listagem de todos os contatos
 """
 
 import sys
@@ -52,6 +53,9 @@ def __go_to_commands(args):
         if __check_args(args, 'search'):
             name_to_search = args[1]
             search_contact(name_to_search)
+    elif args[0] == 'listall':
+        if __check_args(args, 'listall'):
+            pass
     else:
         show_usage()
 
@@ -64,6 +68,11 @@ def __check_args(args, command):
             show_usage()
     elif (command == 'modify') or (command == 'del') or (command == 'search'):
         if len_args == 2:
+            return True
+        else:
+            show_usage()
+    elif command == 'listall':
+        if len_args == 1:
             return True
         else:
             show_usage()
