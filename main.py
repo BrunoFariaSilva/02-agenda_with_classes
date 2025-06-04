@@ -18,8 +18,7 @@ Problemas conhecidos:
 
 import sys
 from core.Args import Args
-from core.common import search_contact
-from core.front import show_usage, final_message
+from core.front import final_message
 
 def main():
     args = __build_and_get_args()

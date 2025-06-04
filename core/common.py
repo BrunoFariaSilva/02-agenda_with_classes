@@ -1,5 +1,5 @@
 import configparser
-from core.front import show_search_result
+from core.front import show_search_result, show_message, ask_message
 
 def __get_config_file():
     config_filepath = 'config.ini'
@@ -14,9 +14,20 @@ def get_db_filepath():
     config = read_config()
     return config.get('db', 'dbfile')
 
-def search_contact(name_to_search):
+def search_contact(name_to_search, mode=None):
     from core.Dao import Dao
     db_contents = Dao()
-    search_result_list = db_contents.search(name_to_search)
-    show_search_result(search_result_list)
+    search_result_list = db_contents.search(name_to_search, mode)
+    if mode == 'del':
+        return search_result_list
+    else:
+        show_search_result(search_result_list)
 
+def delete_contact(list):
+    def ask_to_delete():
+        ask_message('red', 'Informe o índice do contato a ser excluído: ')
+
+
+    print(f'DEBUG 1: list = {list}')
+    show_search_result(list)
+    ask_to_delete()

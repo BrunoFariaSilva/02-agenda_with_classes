@@ -1,5 +1,6 @@
-from core.Contact import Contact
 from core.Dao import Dao
+from core.Contact import Contact
+from core.common import search_contact, delete_contact
 from core.front import show_usage, show_message
 
 class Args:
@@ -10,8 +11,6 @@ class Args:
         if args:                #Se existir argumento
             self.command = args[0]  #Atribui o primeiro item como comando
             self.options = args[1:]  #Atribui os demais itens como opções
-            print(f'DEBUG: self.command = {self.command}')
-            print(f'DEBUG: self.options = {self.options}')
 
     def check_and_run_command(self, command):
         ### Verifica os comandos e opções
@@ -24,15 +23,17 @@ class Args:
             pass
 
         elif (command == 'del') and (self.__check_options()):  #Se for o comando 'del' e as opções estão corretas
-            pass
+            self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
+            search_result = search_contact(self.name_to_search, command)  #Chama a função de busca, com o modo 'del'
+            delete_contact(search_result)
 
         elif (command == 'search') and (self.__check_options()):  #Se for o comando 'search' e as opções estão corretas
             self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
-            dao_conn = Dao()    #Cria instância Dao
-            dao_conn.search(self.name_to_search)  #Solicita busca do nome à Dao
+            search_contact(self.name_to_search)  #Chama a função de busca
 
         elif (command == 'listall') and (self.__check_options()):  #Se for o comando 'listall' e as opções estão corretas
-            pass
+            self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
+            search_contact(self.name_to_search, command)  #Chama a função de busca, com o modo 'listall'
 
         else:                   #Se não for encontrado o comando correto
             show_usage()        #Mostra forma de uso
