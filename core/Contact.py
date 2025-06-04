@@ -11,4 +11,4 @@ class Contact:
         dao_conn = Dao()
         dao_conn.save_contact(new_contact_dict)
         from core.front import show_message
-        show_message(f'Contato "{new_contact_dict['name']}" adicionado com sucesso!')
+        show_message('green', f'Contato "{new_contact_dict['name']}" adicionado com sucesso!')

@@ -48,5 +48,9 @@ def show_usage():
 def final_message():
     print('\nPrograma finalizado.\n\n')
 
-def show_message(msg):
-    print(f'\n\x1b[6;30;42m' + msg + '\x1b[0m\n')  #bgcolor = green; font collor = black
+def show_message(color, msg):
+    #Available colors: green and red
+    if color == 'red':
+        print(f'\n\x1b[1;37;41m' + msg + '\x1b[0m\n')  #bgcolor = red; color = white
+    elif color == 'green':
+        print(f'\n\x1b[6;30;42m' + msg + '\x1b[0m\n')  #bgcolor = green; font color = black
