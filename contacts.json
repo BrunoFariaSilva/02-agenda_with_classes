@@ -1,20 +1,27 @@
-{
-    "contacts": [
-        {
-            "name": "Lucas",
-            "phone": "1234567890"
-        },
-        {
-            "name": "Bruno",
-            "phone": "9999999"
-        },
-        {
-            "name": "Bruno",
-            "phone": "8888888888"
-        },
-        {
-            "name": "Pablo",
-            "phone": "777777777"
-        }
-    ]
-}
+[
+    {
+        "index": 1,
+        "name": "Bruno",
+        "phone": "000000000"
+    },
+    {
+        "index": 3,
+        "name": "Pablo",
+        "phone": "888888888"
+    },
+    {
+        "index": 4,
+        "name": "Jo\u00e3o",
+        "phone": "777777777"
+    },
+    {
+        "index": 5,
+        "name": "Lucas",
+        "phone": "999000999"
+    },
+    {
+        "index": 6,
+        "name": "Bruno Celular",
+        "phone": "1111112222"
+    }
+]
