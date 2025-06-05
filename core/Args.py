@@ -1,6 +1,7 @@
 from core.Dao import Dao
 from core.Contact import Contact
 from core.common import search_contact, delete_contact
+from core.common import get_last_contact_index
 from core.front import show_usage, show_message
 
 class Args:
@@ -59,6 +60,7 @@ class Args:
 
     def __change_args_to_infos(self):  
         ###Mofidica argumentos em atributos
+        self.actual_index = get_last_contact_index() + 1
         self.name = ' '.join(self.options[0:-1])  #Atribui o(s) nome
         self.phone = self.options[-1]  #Atribui o telefone
 

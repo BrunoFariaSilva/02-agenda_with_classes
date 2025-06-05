@@ -23,9 +23,15 @@ def search_contact(name_to_search, mode=None):
     else:
         show_search_result(search_result_list)
 
+def get_last_contact_index():
+    from core.Dao import Dao
+    db_contents = Dao()
+    return db_contents.get_last_index()
+
 def delete_contact(list):
     def ask_to_delete():
-        ask_message('red', 'Informe o índice do contato a ser excluído: ')
+
+        ask_message('red', 'Informe o índice do contato a ser excluído: ', [1, 2])
 
 
     print(f'DEBUG 1: list = {list}')

@@ -25,3 +25,5 @@ class Dao:
                     search_result.append(contact)
         return search_result
     
+    def get_last_index(self):
+        return 0
