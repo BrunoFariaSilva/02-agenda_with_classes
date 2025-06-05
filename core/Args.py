@@ -17,7 +17,7 @@ class Args:
         ### Verifica os comandos e opções
         if (command == 'add') and (self.__check_options()):  #Se for o comando 'add' e as opções estão corretas
             self.__change_args_to_infos()  #Modifica os argumentos em atributos
-            new_contact = Contact(self.name, self.phone)  #Cria instância de Contatos
+            new_contact = Contact(self.actual_index, self.name, self.phone)  #Cria instância de Contatos
             new_contact.save_to_db()  #Solicita a gravação no banco de dados
 
         elif (command == 'modify') and (self.__check_options()):  #Se for o comando 'modify' e as opções estão corretas
@@ -56,7 +56,7 @@ class Args:
             if len_options == 0:  #Se tiver zero argumentos
                 return True     #Retorna True
             else:               #Se tiver algum argumento, mostra msg de erro
-                show_message('red', '"listall" command do not requires any other argument')
+                show_message('"listall" command do not requires any other argument', 'red')
 
     def __change_args_to_infos(self):  
         ###Mofidica argumentos em atributos
