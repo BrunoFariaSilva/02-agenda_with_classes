@@ -54,3 +54,6 @@ def show_message(color, msg):
         print(f'\n\x1b[1;37;41m' + msg + '\x1b[0m\n')  #bgcolor = red; color = white
     elif color == 'green':
         print(f'\n\x1b[6;30;42m' + msg + '\x1b[0m\n')  #bgcolor = green; font color = black
+
+def ask_message(color, msg, options_list):
+    pass

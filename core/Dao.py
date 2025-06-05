@@ -12,11 +12,18 @@ class Dao:
     def __save_file(self, contents):
         self.db_file.save_file(contents)
         
-    def search(self, name):
+    def search(self, name, mode):
+        name = name.casefold()
         self.db_contents = self.db_contents['contacts']
         search_result = []
         for contact in self.db_contents:
-            if name.casefold() == contact['name'].casefold():
+            if mode == 'listall':
                 search_result.append(contact)
+            else:
+                actual_name = contact['name'].casefold()
+                if name in actual_name:
+                    search_result.append(contact)
         return search_result
     
+    def get_last_index(self):
+        return 0
