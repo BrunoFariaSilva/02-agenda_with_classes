@@ -10,10 +10,7 @@ brunofariasilva@gmail.com
 31/05/2025 - 
 
 Problemas conhecidos:
-1 - Busca por parte do nome não funciona
-2 - Falta implementar a alteração do contato
-3 - Falta implementar a exclusão do contato
-4 - Falta implementar a listagem de todos os contatos
+1 - Falta implementar a alteração do contato
 """
 
 import sys

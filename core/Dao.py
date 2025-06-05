@@ -6,7 +6,7 @@ class Dao:
         self.db_contents = self.db_file.read_file()
 
     def save_contact(self, dict):
-        self.db_contents['contacts'].append(dict)
+        self.db_contents.append(dict)
         self.__save_file(self.db_contents)
 
     def __save_file(self, contents):
@@ -14,7 +14,6 @@ class Dao:
         
     def search(self, name, mode):
         name = name.casefold()
-        self.db_contents = self.db_contents['contacts']
         search_result = []
         for contact in self.db_contents:
             if mode == 'listall':
@@ -26,4 +25,16 @@ class Dao:
         return search_result
     
     def get_last_index(self):
-        return 0
+        last_index = 0
+        if self.db_contents:
+            for contact in self.db_contents:
+                if int(contact['index']) > last_index:
+                    last_index = int(contact['index'])
+        return last_index
+
+    def delete_from_db(self, index_to_delete):
+        for index, contact in enumerate(self.db_contents):
+            if index_to_delete == int(contact['index']):
+                self.db_contents.pop(index)
+                break
+        self.__save_file(self.db_contents)

@@ -19,8 +19,8 @@ def show_search_result(list):
         __clear_screen()
         __show_header()
         __show_sub_header()
-        for index, contact in enumerate(list):
-            print(f'{index+1} - Nome: {contact['name']} \tTelefone: {contact['phone']}')
+        for contact in list:
+            print(f'{contact['index']} - Nome: {contact['name']} \tTelefone: {contact['phone']}')
         print('\n')
 
 def show_usage():
@@ -48,12 +48,48 @@ def show_usage():
 def final_message():
     print('\nPrograma finalizado.\n\n')
 
-def show_message(color, msg):
+def show_message(msg, color=None):
     #Available colors: green and red
     if color == 'red':
         print(f'\n\x1b[1;37;41m' + msg + '\x1b[0m\n')  #bgcolor = red; color = white
     elif color == 'green':
         print(f'\n\x1b[6;30;42m' + msg + '\x1b[0m\n')  #bgcolor = green; font color = black
+    else:
+        print(msg)
 
-def ask_message(color, msg, options_list):
-    pass
+def check_input(msg, options_list, input_type):
+    user_input = input(msg)
+    if input_type == int:
+        try:
+            user_input = int(user_input)
+        except:
+            show_message('Opção inválida! Tente novamente.', 'red')
+        else:
+            if not user_input in options_list:
+                show_message('Índice inválido! Tente novamente.', 'red')
+                return False
+            else:
+                return user_input
+    else:
+        if user_input not in options_list:
+            show_message('Opção inválida! Tente novamente.', 'red')
+            return False
+        else:
+            return user_input
+
+
+def ask_message(msg, options_list, input_type, color=None):
+    #Available colors: green and red
+    if color == 'red':
+        index_choice = check_input(f'\n\x1b[6;30;42m' + msg + '\x1b[0m ', options_list, input_type)  #bgcolor = green; font color = black
+        return index_choice
+    elif color == 'green':
+        index_choice = check_input(f'\n\x1b[6;30;42m' + msg + '\x1b[0m ', options_list, input_type)  #bgcolor = green; font color = black
+        return index_choice
+    else:
+        index_choice = check_input(f'{msg} ', options_list, input_type)
+        return index_choice
+    
+def confirm_to_delete(index):
+    return True if ask_message('Tem certeza que deseja excluir o contato (S/n)?', ['S', 'n'], str, 'red') == 'S' else show_message('\nExclusão abortada.')
+        
