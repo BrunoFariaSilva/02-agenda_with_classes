@@ -19,9 +19,21 @@ def show_search_result(list):
         __clear_screen()
         __show_header()
         __show_sub_header()
-        for contact in list:
-            print(f'{contact['index']} - Nome: {contact['name']} \tTelefone: {contact['phone']}')
-        print('\n')
+
+        len_cod = 8
+        len_name = 30
+        len_phone = 20
+        first_line = 'CÓDIGO'.center(len_cod) + 'NOME'.center(len_name) + 'TELEFONE'.center(len_phone)
+        print(first_line)
+        print('-' * len(first_line))
+        for index, contact in enumerate(list):
+            contact_line = str(contact['index']).center(len_cod) + contact['name'].ljust(len_name) + contact['phone'].ljust(len_phone)
+            if index % 2:
+                print(f'\x1b[0;37;40m{contact_line}\x1b[0m')
+            else:
+                print(f'\x1b[0;30;47m{contact_line}\x1b[0m')
+        print('-' * len(first_line))
+        print(f'Total de contatos encontrados: {len(list)}')
 
 def show_usage():
     print('\n')

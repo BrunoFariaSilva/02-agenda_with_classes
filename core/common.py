@@ -34,8 +34,11 @@ def delete_contact(list):
         indexes_list = []
         for contact in list:
             indexes_list.append(int(contact['index']))
-        index_to_delete = ask_message('Informe o índice do contato a ser excluído: ', indexes_list, int, 'green')
-        return index_to_delete
+        if indexes_list:
+            index_to_delete = ask_message('Informe o índice do contato a ser excluído: ', indexes_list, int, 'green')
+            return index_to_delete
+        else:
+            show_message(f'Contato não encontrado!', 'green')
     
     def __delete_from_db(index):
         from core.Contact import Contact
@@ -53,8 +56,11 @@ def modify_contact(list):
         indexes_list = []
         for contact in list:
             indexes_list.append(int(contact['index']))
-        index_to_modify = ask_message('Informe o índice do contato a ser alterado: ', indexes_list, int, 'green')
-        return index_to_modify
+        if indexes_list:
+            index_to_modify = ask_message('Informe o índice do contato a ser alterado: ', indexes_list, int, 'green')
+            return index_to_modify
+        else:
+            show_message(f'Contato não encontrado!', 'green')        
 
     def _get_actual_contact_infos(index):
         from core.Dao import Dao
