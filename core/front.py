@@ -64,6 +64,7 @@ def check_input(msg, options_list, input_type):
             user_input = int(user_input)
         except:
             show_message('Opção inválida! Tente novamente.', 'red')
+            return False
         else:
             if not user_input in options_list:
                 show_message('Índice inválido! Tente novamente.', 'red')
@@ -93,3 +94,10 @@ def ask_message(msg, options_list, input_type, color=None):
 def confirm_to_delete(index):
     return True if ask_message('Tem certeza que deseja excluir o contato (S/n)?', ['S', 'n'], str, 'red') == 'S' else show_message('\nExclusão abortada.')
         
+def get_new_name(actual_name):
+    print(f'\nNome atual do contato: {actual_name}')
+    return input('Novo nome do contato (ENTER para não alterar): ')
+
+def get_new_phone(actual_phone):
+    print(f'\nTelefone atual do contato: {actual_phone}')
+    return input('Novo telefone do contato (ENTER para não alterar): ')

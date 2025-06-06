@@ -1,8 +1,9 @@
 from core.Dao import Dao
 from core.Contact import Contact
 from core.common import search_contact, delete_contact
-from core.common import get_last_contact_index
 from core.front import show_usage, show_message
+from core.common import get_last_contact_index
+from core.common import modify_contact
 
 class Args:
     def __init__(self, args):
@@ -21,7 +22,9 @@ class Args:
             new_contact.save_to_db()  #Solicita a gravação no banco de dados
 
         elif (command == 'modify') and (self.__check_options()):  #Se for o comando 'modify' e as opções estão corretas
-            pass
+            self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
+            search_result = search_contact(self.name_to_search, command)  #Chama a função de busca, com o modo 'del'
+            modify_contact(search_result)
 
         elif (command == 'del') and (self.__check_options()):  #Se for o comando 'del' e as opções estão corretas
             self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado

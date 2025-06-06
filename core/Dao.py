@@ -7,9 +7,9 @@ class Dao:
 
     def save_contact(self, dict):
         self.db_contents.append(dict)
-        self.__save_file(self.db_contents)
+        self.__save_to_db(self.db_contents)
 
-    def __save_file(self, contents):
+    def __save_to_db(self, contents):
         self.db_file.save_file(contents)
         
     def search(self, name, mode):
@@ -37,4 +37,12 @@ class Dao:
             if index_to_delete == int(contact['index']):
                 self.db_contents.pop(index)
                 break
-        self.__save_file(self.db_contents)
+        self.__save_to_db(self.db_contents)
+
+    def change_contact(self, changed_contact):
+        for contact in self.db_contents:
+            if changed_contact['index'] == contact['index']:
+                contact['name'] = changed_contact['name']
+                contact['phone'] = changed_contact['phone']
+                break
+        self.__save_to_db(self.db_contents)

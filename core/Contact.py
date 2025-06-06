@@ -18,3 +18,8 @@ class Contact:
     def delete_contact(self, index_to_delete):
         dao_conn = Dao()
         dao_conn.delete_from_db(index_to_delete)
+
+    def change_contact(self, contact):
+        dao_conn = Dao()
+        dao_conn.change_contact(contact)
+        
