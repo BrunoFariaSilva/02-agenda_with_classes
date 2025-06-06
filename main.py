@@ -10,7 +10,13 @@ brunofariasilva@gmail.com
 31/05/2025 - 
 
 Problemas conhecidos:
-1 - Falta implementar a alteração do contato
+1 - Solicita índice para exclusão mesmo sem nenhum contato na lista de busca
+2 - Solicita índice para alteração mesmo sem nenhum contato na lista de busca
+
+Implementar:
+1 - Totalizador de contatos no 'listall'
+2 - Totalizador de contatos no 'search'
+3 - Melhorar a exibição da lista de contatos (listall e search)
 """
 
 import sys
