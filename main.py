@@ -7,7 +7,7 @@ Registrar em arquivo local nome e número de telefone
 - Busca de contatos por nome insensível
 
 brunofariasilva@gmail.com
-31/05/2025 - 
+31/05/2025 - 06/06/2025
 
 Problemas conhecidos:
 
