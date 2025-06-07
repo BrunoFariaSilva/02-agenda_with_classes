@@ -24,12 +24,12 @@ class Args:
         elif (command == 'modify') and (self.__check_options()):  #Se for o comando 'modify' e as opções estão corretas
             self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
             search_result = search_contact(self.name_to_search, command)  #Chama a função de busca, com o modo 'del'
-            modify_contact(search_result)
+            modify_contact(search_result)  #Chama a função que altera os dados do contato
 
         elif (command == 'del') and (self.__check_options()):  #Se for o comando 'del' e as opções estão corretas
             self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
             search_result = search_contact(self.name_to_search, command)  #Chama a função de busca, com o modo 'del'
-            delete_contact(search_result)
+            delete_contact(search_result)  #Chama a função que exclui o contato
 
         elif (command == 'search') and (self.__check_options()):  #Se for o comando 'search' e as opções estão corretas
             self.__join_search_text()  #Une todos os itens das opções com espaços entre eles e cria atributo com o nome a ser buscado
@@ -63,7 +63,7 @@ class Args:
 
     def __change_args_to_infos(self):  
         ###Mofidica argumentos em atributos
-        self.actual_index = get_last_contact_index() + 1
+        self.actual_index = get_last_contact_index() + 1  #Recupera o maior index e adiciona 1 para ser o index do contato atual
         self.name = ' '.join(self.options[0:-1])  #Atribui o(s) nome
         self.phone = self.options[-1]  #Atribui o telefone
 
