@@ -2,6 +2,43 @@ import configparser
 from core.front import confirm_to_delete, get_new_name, get_new_phone
 from core.front import show_search_result, show_message, ask_message
 
+def check_and_run_command(args):
+    def check_name_and_phone():
+        if args.name and args.phonenumber:
+            return True
+        else:
+            show_message('Parâmetro incorreto! Verifique o nome e o telefone do contato.', 'red')
+            show_message('Use o argumento "-h" para obter ajuda.')
+            return False
+    
+    def check_name():
+        if args.name:
+            return True
+        else:
+            show_message('Parâmetro incorreto! Verifique o nome do contato. Use o argumento "-h" para obter ajuda.', 'red')
+            return False            
+        
+    if args.command == 'add':
+        if check_name_and_phone():
+            from core.Contact import Contact
+            actual_index = get_last_contact_index() + 1  #Recupera o maior index e adiciona 1 para ser o index do contato atual
+            new_contact = Contact(actual_index, args.name, args.phonenumber)  #Cria instância de Contatos
+            new_contact.save_to_db()  #Solicita a gravação no banco de dados
+    elif args.command == 'modify':
+        if check_name():
+            search_result = search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'del'
+            modify_contact(search_result)  #Chama a função que altera os dados do contato
+    elif args.command == 'del':
+        if check_name():
+            search_result = search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'del'
+            delete_contact(search_result)  #Chama a função que exclui o contato
+    elif args.command == 'search':
+        if check_name():
+            search_contact(args.name)  #Chama a função de busca
+    elif args.command == 'listall':
+        search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'listall'
+
+
 def __get_config_file():
     ###Recupera o caminho do arquivo de configuração
     config_filepath = 'config.ini'  #Caminho do arquivo de configuração
