@@ -14,7 +14,6 @@ Problemas conhecidos:
     json criado.
 
 Implementar:
-- Melhorar a busca por letra única
 - Pausa na listagem completa dos contatos
 - Melhorar a exibição dos resultados de busca (tabulação)
 """
@@ -23,7 +22,7 @@ import argparse
 from core.front import final_message
 from core.common import check_and_run_command
 
-def main():    
+def main():
     args = __build_and_get_args()
     check_and_run_command(args)
     final_message()

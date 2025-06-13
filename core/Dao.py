@@ -24,15 +24,22 @@ class Dao:
         
     def search(self, name, mode):
         ###Método para busca de contato
-        name = name.casefold()  #Normaliza o nome passado pelo usuário
-        search_result = []  #Lista para o resultado da busca
-        for contact in self.db_contents:  #Para cada contato na lista de contatos
-            if mode == 'listall':  #Se o modo de busca é 'listall'
-                search_result.append(contact)  #Adiciona todos os contatos na lista resultado de busca
-            else:           #Se o modo de busca for normal
+        search_result = []      #Lista para o resultado da busca
+        if (name) and (len(name) == 1) and (mode != 'listall'):      #Se a busca é pela letra inicial
+            name = name.casefold()  #Normaliza o nome passado pelo usuário
+            for contact in self.db_contents:  #Para cada contato na lista de contatos
                 actual_name = contact['name'].casefold()  #Recupera o nome do contato atual
-                if name in actual_name:  #Verif se o contato atual possui o nome ou parte do nome inform pelo usuário
+                if name == actual_name[0]:  #Verif se o contato atual possui o nome ou parte do nome inform pelo usuário
                     search_result.append(contact)  #Adiciona o contato atual na lista de resultado de busca
+        else:
+            for contact in self.db_contents:  #Para cada contato na lista de contatos
+                if mode == 'listall':  #Se o modo de busca é 'listall'
+                    search_result.append(contact)  #Adiciona todos os contatos na lista resultado de busca
+                else:           #Se o modo de busca for normal
+                    name = name.casefold()  #Normaliza o nome passado pelo usuário
+                    actual_name = contact['name'].casefold()  #Recupera o nome do contato atual
+                    if name in actual_name:  #Verif se o contato atual possui o nome ou parte do nome inform pelo usuário
+                        search_result.append(contact)  #Adiciona o contato atual na lista de resultado de busca
         return search_result  #Retorna a lista com o resultado da busca
     
     def get_last_index(self):

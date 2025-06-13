@@ -34,6 +34,8 @@ def show_search_result(list):
                 print(f'\x1b[0;30;47m{contact_line}\x1b[0m')
         print('-' * len(first_line))
         print(f'Total de contatos encontrados: {len(list)}')
+    else:
+        show_message('Nenhum contato encontrado.', 'red')
 
 def show_usage():
     print('\n')
