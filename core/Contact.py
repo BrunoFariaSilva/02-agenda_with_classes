@@ -23,6 +23,7 @@ class Contact:
         dao_conn.delete_from_db(index_to_delete)  #Solicita a exclusão do contato passando o index
 
     def change_contact(self, contact):
+        ###Método para alteração do contato
         dao_conn = Dao()        #Instancia para conexão com a classe DAO
         dao_conn.change_contact(contact)  #Solicita a alteração do contato passando todos os dados
         

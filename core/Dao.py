@@ -1,3 +1,4 @@
+from operator import itemgetter
 from core.File import File
 
 class Dao:
@@ -9,7 +10,13 @@ class Dao:
     def save_contact(self, dict):
         ###Método para salvar um novo contato no BD
         self.db_contents.append(dict)  #Adiciona o novo contato na lista atual do BD (local)
+        self.__sort_contacts()  #Ordenação dos contatos da lista de contatos (local)
         self.__save_to_db(self.db_contents)  #Solicita a gravação da lista (local) do BD no arquivo
+
+    def __sort_contacts(self):
+        ###Método para ordenação alfabética da lista de contatos
+        self.db_contents = sorted(self.db_contents, key=itemgetter('name'))  #Utiliza a função sorted com o método
+                                #'itemgetter' do módulo 'operator' para ordenação da lista de dicionários
 
     def __save_to_db(self, contents):
         ###Método para gravação do arquivo de BD
@@ -52,4 +59,5 @@ class Dao:
                 contact['name'] = changed_contact['name']  #Atualiza o nome do contato
                 contact['phone'] = changed_contact['phone']  #Atualiza o telefone do contato
                 break           #Interrompe o for
+        self.__sort_contacts()  #Ordenação dos contatos da lista de contatos (local)
         self.__save_to_db(self.db_contents)  #Solicita a gravação da lista local no arquivo de BD

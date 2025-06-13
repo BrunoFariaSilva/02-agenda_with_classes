@@ -15,12 +15,10 @@ Problemas conhecidos:
 
 Implementar:
 - Melhorar a busca por letra única
-- Ordem alfabética
 - Pausa na listagem completa dos contatos
 - Melhorar a exibição dos resultados de busca (tabulação)
 """
 
-import sys
 import argparse
 from core.front import final_message
 from core.common import check_and_run_command
