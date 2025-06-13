@@ -3,61 +3,63 @@ from core.front import confirm_to_delete, get_new_name, get_new_phone
 from core.front import show_search_result, show_message, ask_message
 
 def check_and_run_command(args):
+    ###Função para verificar os argumentos e executar os comandos
     def check_name_and_phone():
-        if args.name and args.phonenumber:
-            return True
-        else:
+        ##Subfunção para checar se existe nome e telefone passados nos argumentos
+        if args.name and args.phonenumber:  #Se existir nome E telefone
+            return True         #Retorna verdadeiro
+        else:                   #Se não existir nome E/OU telefone
             show_message('Parâmetro incorreto! Verifique o nome e o telefone do contato.', 'red')
             show_message('Use o argumento "-h" para obter ajuda.')
-            return False
+            return False        #Retorna falso
     
     def check_name():
-        if args.name:
-            return True
-        else:
+        ##Subfunção que checa se existe nome passado no argumento
+        if args.name:           #Se existir nome
+            return True         #Retorna verdadeiro
+        else:                   #Se não existir nome
             show_message('Parâmetro incorreto! Verifique o nome do contato. Use o argumento "-h" para obter ajuda.', 'red')
-            return False            
+            return False        #Retorna falso
         
-    if args.command == 'add':
-        if check_name_and_phone():
-            from core.Contact import Contact
+    if args.command == 'add':   #Verifica se o comando é 'add'
+        if check_name_and_phone():  #Verifica se existe nome e telefone
+            from core.Contact import Contact  #Importa a classe Contact
             actual_index = get_last_contact_index() + 1  #Recupera o maior index e adiciona 1 para ser o index do contato atual
             new_contact = Contact(actual_index, args.name, args.phonenumber)  #Cria instância de Contatos
             new_contact.save_to_db()  #Solicita a gravação no banco de dados
-    elif args.command == 'modify':
-        if check_name():
-            search_result = search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'del'
+    elif args.command == 'modify':  #Verifica se o comando é 'modify'
+        if check_name():        #Verifica se existe nome
+            search_result = search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'modify'
             modify_contact(search_result)  #Chama a função que altera os dados do contato
-    elif args.command == 'del':
-        if check_name():
+    elif args.command == 'del':  #Verifica se o comando é 'del'
+        if check_name():        #Verifica se existe nome
             search_result = search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'del'
             delete_contact(search_result)  #Chama a função que exclui o contato
-    elif args.command == 'search':
-        if check_name():
+    elif args.command == 'search':  #Verifica se o comando é 'search'
+        if check_name():        #Verifica se existe nome
             search_contact(args.name)  #Chama a função de busca
-    elif args.command == 'listall':
+    elif args.command == 'listall':  #Verifica se o comando é 'listall'
         search_contact(args.name, args.command)  #Chama a função de busca, com o modo 'listall'
 
 
 def __get_config_file():
-    ###Recupera o caminho do arquivo de configuração
+    ###Retorna o caminho do arquivo de configuração
     config_filepath = 'config.ini'  #Caminho do arquivo de configuração
     return config_filepath      #Retorna o caminho
 
-def read_config():
+def read_config(group, param):
     ###Lê as configurações do arquivo de configurações
     config_contents = configparser.ConfigParser()  #Nova instância da classe ConfigParser
-    config_contents.read(__get_config_file())  #Lê as configurações do arquivo
-    return config_contents  #Retorna as configurações
+    config_contents.read(__get_config_file())  #Lê todas as configurações do arquivo
+    return config_contents.get(group, param)  #Retorna as configurações específicadas
 
 def get_db_filepath():
     ###Recupera o caminho do banco de dados das configurações
-    config = read_config()      #Lê a configuração
-    return config.get('db', 'dbfile')  #Recupera e retorna apenas o caminho do banco de dados
+    return read_config('db', 'dbfile')  #Recupera e retorna apenas o caminho do banco de dados
 
 def search_contact(name_to_search, mode=None):
     ###Motor de busca de contato
-    from core.Dao import Dao
+    from core.Dao import Dao    #Importa a classe Dao
     db_contents = Dao()         #Nova instância da classe Dao
     search_result_list = db_contents.search(name_to_search, mode)  #Recebe o resultado da busca em lista
     if (mode == 'del') or (mode == 'modify'):  #Verifica o modo de execução, se for alteração ou exclusão
@@ -67,7 +69,7 @@ def search_contact(name_to_search, mode=None):
 
 def get_last_contact_index():
     ###Recupera o último index de contato usado
-    from core.Dao import Dao
+    from core.Dao import Dao    #Importa a classe Dao
     db_contents = Dao()         #Nova instância da classe Dao
     return db_contents.get_last_index()  #Recupera e retorna o último index
 

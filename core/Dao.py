@@ -25,31 +25,32 @@ class Dao:
     def search(self, name, mode):
         ###Método para busca de contato
         search_result = []      #Lista para o resultado da busca
-        if (name) and (len(name) == 1) and (mode != 'listall'):      #Se a busca é pela letra inicial
+        if (name) and (len(name) == 1) and (mode != 'listall'):  #Se existe conteúdo para busca,
+                            #E é apenas uma letra E o modo não é listagem completa (busca por letra inicial)
             name = name.casefold()  #Normaliza o nome passado pelo usuário
             for contact in self.db_contents:  #Para cada contato na lista de contatos
                 actual_name = contact['name'].casefold()  #Recupera o nome do contato atual
-                if name == actual_name[0]:  #Verif se o contato atual possui o nome ou parte do nome inform pelo usuário
+                if name == actual_name[0]:  #Verifica se o contato atual possui a letra inicial informado pelo usuário
                     search_result.append(contact)  #Adiciona o contato atual na lista de resultado de busca
-        else:
+        else:                   #Se é busca por nome ou parte do nome
             for contact in self.db_contents:  #Para cada contato na lista de contatos
                 if mode == 'listall':  #Se o modo de busca é 'listall'
                     search_result.append(contact)  #Adiciona todos os contatos na lista resultado de busca
                 else:           #Se o modo de busca for normal
                     name = name.casefold()  #Normaliza o nome passado pelo usuário
                     actual_name = contact['name'].casefold()  #Recupera o nome do contato atual
-                    if name in actual_name:  #Verif se o contato atual possui o nome ou parte do nome inform pelo usuário
+                    if name in actual_name:  #Verif se o cont. atual possui o nome ou parte do nome inform pelo usuário
                         search_result.append(contact)  #Adiciona o contato atual na lista de resultado de busca
-        return search_result  #Retorna a lista com o resultado da busca
+        return search_result    #Retorna a lista com o resultado da busca
     
     def get_last_index(self):
         ###Método para obter o maior index já utilizado
-        last_index = 0  #Atribui zero como último índex
-        if self.db_contents:  #Se o banco de dados não for vazio
+        last_index = 0          #Atribui zero como último índex
+        if self.db_contents:    #Se o banco de dados não for vazio
             for contact in self.db_contents:  #Para cada contato na lista de contatos
                 if int(contact['index']) > last_index:  #Se o índice atual é maior do que o já registrado
                     last_index = int(contact['index'])  #Salva o índice atual
-        return last_index  #Retorna o último index utilizado
+        return last_index       #Retorna o último index utilizado
 
     def delete_from_db(self, index_to_delete):
         ###Método para excluir um contato do BD
