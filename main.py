@@ -10,12 +10,12 @@ brunofariasilva@gmail.com
 31/05/2025 - 06/06/2025
 
 Problemas conhecidos:
-1 - Possível problema ao iniciar o programa sem o arquivo de banco de dados
-    json criado.
+1 - Listagem alfabética não considera acentos, fazendo com que a lista de nomes que começam
+    com acento comece no final da lista dos que não tem acento   
+2 - Busca não funciona corretamente com acentos
 
 Implementar:
-- Pausa na listagem completa dos contatos
-- Melhorar a exibição dos resultados de busca (tabulação)
+- 
 """
 
 import argparse

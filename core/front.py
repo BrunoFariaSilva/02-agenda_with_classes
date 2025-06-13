@@ -27,11 +27,17 @@ def show_search_result(list):
         print(first_line)
         print('-' * len(first_line))
         for index, contact in enumerate(list):
-            contact_line = str(contact['index']).center(len_cod) + contact['name'].ljust(len_name) + contact['phone'].ljust(len_phone)
+            contact_line = str(contact['index']).center(len_cod) + contact['name'].center(len_name) + contact['phone'].center(len_phone)
             if index % 2:
                 print(f'\x1b[0;37;40m{contact_line}\x1b[0m')
             else:
                 print(f'\x1b[0;30;47m{contact_line}\x1b[0m')
+            from core.common import read_config
+            config_contents = read_config()
+            lines_to_pause = int(config_contents.get('general', 'lines_to_pause'))                
+            if (len(list) > 20) and ((index > 0) and (index % lines_to_pause == 0)):
+                show_message('Pressione ENTER para continuar...', 'green')
+                input()
         print('-' * len(first_line))
         print(f'Total de contatos encontrados: {len(list)}')
     else:
