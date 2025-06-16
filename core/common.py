@@ -57,6 +57,49 @@ def get_db_filepath():
     ###Recupera o caminho do banco de dados das configurações
     return read_config('db', 'dbfile')  #Recupera e retorna apenas o caminho do banco de dados
 
+def normalize_word(word):
+    special_chars_list = ['á', 'é', 'í', 'ó', 'ú',
+                          'Á', 'É', 'Í', 'Ó', 'Ú',
+                          'â', 'ê', 'î', 'ô', 'û',
+                          'Â', 'Ê', 'Î', 'Ô', 'Û',
+                          'ã', 'õ', 'ñ',
+                          'Ã', 'Õ', 'Ñ',
+                          'à', 'è', 'ì', 'ò', 'ù',
+                          'À', 'È', 'Ì', 'Ò', 'Ù',
+                          'ý', 'ç', 'Ý', 'Ç',
+                          'ä', 'ë', 'ï', 'ö', 'ü',
+                          'Ä', 'Ë', 'Ï', 'Ö', 'Ü']
+    
+    substitute_chars = ['a', 'e', 'i', 'o', 'u',
+                        'A', 'E', 'I', 'O', 'U',
+                        'a', 'e', 'i', 'o', 'u',
+                        'A', 'E', 'I', 'O', 'U',
+                        'a', 'o', 'n',
+                        'A', 'O', 'N',
+                        'a', 'e', 'i', 'o', 'u',
+                        'A', 'E', 'I', 'O', 'U',
+                        'y', 'c', 'Y', 'C',
+                        'a', 'e', 'i', 'o', 'u',
+                        'A', 'E', 'I', 'O', 'U']
+
+    def change_char(c):
+        for index, char in enumerate(special_chars_list):
+            if c == char:
+                c = substitute_chars[index]
+                break
+        return c
+
+    normalized_word = []
+    for c in word:
+        if c in special_chars_list:
+            normalized_word.append(change_char(c))
+        else:
+            normalized_word.append(c)
+
+    normalized_word = ''.join(normalized_word).casefold()
+    return normalized_word
+
+
 def search_contact(name_to_search, mode=None):
     ###Motor de busca de contato
     from core.Dao import Dao    #Importa a classe Dao

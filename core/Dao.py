@@ -1,3 +1,4 @@
+from core.common import normalize_word
 from operator import itemgetter
 from core.File import File
 
@@ -15,7 +16,7 @@ class Dao:
 
     def __sort_contacts(self):
         ###Método para ordenação alfabética da lista de contatos
-        self.db_contents = sorted(self.db_contents, key=itemgetter('name'))  #Utiliza a função sorted com o método
+        self.db_contents = sorted(self.db_contents, key=itemgetter('normalized_name'))  #Utiliza a função sorted com o método
                                 #'itemgetter' do módulo 'operator' para ordenação da lista de dicionários
 
     def __save_to_db(self, contents):
@@ -25,11 +26,12 @@ class Dao:
     def search(self, name, mode):
         ###Método para busca de contato
         search_result = []      #Lista para o resultado da busca
+        if mode != 'listall':
+            name = normalize_word(name)
         if (name) and (len(name) == 1) and (mode != 'listall'):  #Se existe conteúdo para busca,
                             #E é apenas uma letra E o modo não é listagem completa (busca por letra inicial)
-            name = name.casefold()  #Normaliza o nome passado pelo usuário
             for contact in self.db_contents:  #Para cada contato na lista de contatos
-                actual_name = contact['name'].casefold()  #Recupera o nome do contato atual
+                actual_name = contact['normalized_name']  #Recupera o nome do contato atual
                 if name == actual_name[0]:  #Verifica se o contato atual possui a letra inicial informado pelo usuário
                     search_result.append(contact)  #Adiciona o contato atual na lista de resultado de busca
         else:                   #Se é busca por nome ou parte do nome
@@ -37,8 +39,7 @@ class Dao:
                 if mode == 'listall':  #Se o modo de busca é 'listall'
                     search_result.append(contact)  #Adiciona todos os contatos na lista resultado de busca
                 else:           #Se o modo de busca for normal
-                    name = name.casefold()  #Normaliza o nome passado pelo usuário
-                    actual_name = contact['name'].casefold()  #Recupera o nome do contato atual
+                    actual_name = contact['normalized_name']  #Recupera o nome do contato atual
                     if name in actual_name:  #Verif se o cont. atual possui o nome ou parte do nome inform pelo usuário
                         search_result.append(contact)  #Adiciona o contato atual na lista de resultado de busca
         return search_result    #Retorna a lista com o resultado da busca
@@ -69,3 +70,4 @@ class Dao:
                 break           #Interrompe o for
         self.__sort_contacts()  #Ordenação dos contatos da lista de contatos (local)
         self.__save_to_db(self.db_contents)  #Solicita a gravação da lista local no arquivo de BD
+        

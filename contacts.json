@@ -2,201 +2,271 @@
     {
         "index": 8,
         "name": "Afonso Celular",
-        "phone": "234234234"
+        "phone": "234234234",
+        "normalized_name": "afonso celular"
     },
     {
         "index": 43,
         "name": "Alexandre Cel",
-        "phone": "0778844553662"
+        "phone": "0778844553662",
+        "normalized_name": "alexandre cel"
     },
     {
         "index": 32,
         "name": "Alice Cel",
-        "phone": "779988775588"
+        "phone": "779988775588",
+        "normalized_name": "alice cel"
     },
     {
-        "index": 36,
-        "name": "Ana Maria Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 9,
-        "name": "Bruno Casa",
-        "phone": "123321123"
-    },
-    {
-        "index": 6,
-        "name": "Bruno Cel",
-        "phone": "333222111"
-    },
-    {
-        "index": 11,
-        "name": "Bruno Faria",
-        "phone": "9887654321"
-    },
-    {
-        "index": 12,
-        "name": "Bruno Faria",
-        "phone": "5643785287"
-    },
-    {
-        "index": 14,
-        "name": "Cl\u00e1udia",
-        "phone": "02200222200"
-    },
-    {
-        "index": 42,
-        "name": "C\u00e1ssio Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 41,
-        "name": "C\u00e1ssio Trabalho",
-        "phone": "779988775588"
-    },
-    {
-        "index": 39,
-        "name": "D\u00e9lio Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 40,
-        "name": "D\u00e9lio Trabalho",
-        "phone": "779988775588"
-    },
-    {
-        "index": 13,
-        "name": "Felipe",
-        "phone": "555444000"
-    },
-    {
-        "index": 29,
-        "name": "Fernanda Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 30,
-        "name": "Fernanda Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 24,
-        "name": "Gustavo Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 23,
-        "name": "Gustavo Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 4,
-        "name": "Jo\u00e3o Holanda",
-        "phone": "777777777"
-    },
-    {
-        "index": 5,
-        "name": "Lucas Casa",
-        "phone": "999000999"
-    },
-    {
-        "index": 17,
-        "name": "Luis Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 18,
-        "name": "Luis Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 34,
-        "name": "Manoela Cel Tim",
-        "phone": "779988775588"
-    },
-    {
-        "index": 33,
-        "name": "Manoela Cel Vivo",
-        "phone": "779988775588"
-    },
-    {
-        "index": 35,
-        "name": "Manoela Trabalho",
-        "phone": "779988775588"
-    },
-    {
-        "index": 37,
-        "name": "Maria Cida Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 7,
-        "name": "Miguel",
-        "phone": "2222222222"
-    },
-    {
-        "index": 3,
-        "name": "Pablo Cel",
-        "phone": "456789456"
-    },
-    {
-        "index": 28,
-        "name": "Paulo Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 27,
-        "name": "Paulo Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 21,
-        "name": "Priscila Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 22,
-        "name": "Priscila Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 16,
-        "name": "Renato Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 15,
-        "name": "Renato Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 25,
-        "name": "Ricardo Casa",
-        "phone": "779988775588"
-    },
-    {
-        "index": 26,
-        "name": "Ricardo Cel",
-        "phone": "779988775588"
-    },
-    {
-        "index": 10,
-        "name": "Sony Da Silva",
-        "phone": "89658-7456"
-    },
-    {
-        "index": 38,
-        "name": "Thayane Cel",
-        "phone": "779988775588"
+        "index": 44,
+        "name": "Alice Trabalho",
+        "phone": "96857422550",
+        "normalized_name": "alice trabalho"
     },
     {
         "index": 20,
         "name": "\u00c1lvaro Casa",
-        "phone": "779988775588"
+        "phone": "779988775588",
+        "normalized_name": "alvaro casa"
     },
     {
         "index": 19,
         "name": "\u00c1lvaro Cel",
-        "phone": "779988775588"
+        "phone": "779988775588",
+        "normalized_name": "alvaro cel"
+    },
+    {
+        "index": 46,
+        "name": "\u00c1lvaro Cel",
+        "phone": "987455654563",
+        "normalized_name": "alvaro cel"
+    },
+    {
+        "index": 36,
+        "name": "Ana Maria Vivo",
+        "phone": "779988775588",
+        "normalized_name": "ana maria vivo"
+    },
+    {
+        "index": 45,
+        "name": "Arrascaeta",
+        "phone": "778899445566",
+        "normalized_name": "arrascaeta"
+    },
+    {
+        "index": 9,
+        "name": "Bruno Casa",
+        "phone": "123321123",
+        "normalized_name": "bruno casa"
+    },
+    {
+        "index": 6,
+        "name": "Bruno Cel",
+        "phone": "333222111",
+        "normalized_name": "bruno cel"
+    },
+    {
+        "index": 11,
+        "name": "Bruno Faria",
+        "phone": "9887654321",
+        "normalized_name": "bruno faria"
+    },
+    {
+        "index": 12,
+        "name": "Bruno Faria",
+        "phone": "5643785287",
+        "normalized_name": "bruno faria"
+    },
+    {
+        "index": 42,
+        "name": "C\u00e1ssio Cel",
+        "phone": "779988775588",
+        "normalized_name": "cassio cel"
+    },
+    {
+        "index": 41,
+        "name": "C\u00e1ssio Trabalho",
+        "phone": "779988775588",
+        "normalized_name": "cassio trabalho"
+    },
+    {
+        "index": 14,
+        "name": "Cl\u00e1udia",
+        "phone": "02200222200",
+        "normalized_name": "claudia"
+    },
+    {
+        "index": 39,
+        "name": "D\u00e9lio Cel",
+        "phone": "779988775588",
+        "normalized_name": "delio cel"
+    },
+    {
+        "index": 40,
+        "name": "D\u00e9lio Trabalho",
+        "phone": "779988775588",
+        "normalized_name": "delio trabalho"
+    },
+    {
+        "index": 13,
+        "name": "Felipe",
+        "phone": "555444000",
+        "normalized_name": "felipe"
+    },
+    {
+        "index": 29,
+        "name": "Fernanda Casa",
+        "phone": "779988775588",
+        "normalized_name": "fernanda casa"
+    },
+    {
+        "index": 30,
+        "name": "Fernanda Cel",
+        "phone": "779988775588",
+        "normalized_name": "fernanda cel"
+    },
+    {
+        "index": 24,
+        "name": "Gustavo Casa",
+        "phone": "779988775588",
+        "normalized_name": "gustavo casa"
+    },
+    {
+        "index": 23,
+        "name": "Gustavo Cel",
+        "phone": "779988775588",
+        "normalized_name": "gustavo cel"
+    },
+    {
+        "index": 4,
+        "name": "Jo\u00e3o Holanda",
+        "phone": "777777777",
+        "normalized_name": "joao holanda"
+    },
+    {
+        "index": 5,
+        "name": "Lucas Casa",
+        "phone": "999000999",
+        "normalized_name": "lucas casa"
+    },
+    {
+        "index": 17,
+        "name": "Luis Casa",
+        "phone": "779988775588",
+        "normalized_name": "luis casa"
+    },
+    {
+        "index": 18,
+        "name": "Luis Cel",
+        "phone": "779988775588",
+        "normalized_name": "luis cel"
+    },
+    {
+        "index": 34,
+        "name": "Manoela Cel Tim",
+        "phone": "779988775588",
+        "normalized_name": "manoela cel tim"
+    },
+    {
+        "index": 33,
+        "name": "Manoela Cel Vivo",
+        "phone": "779988775588",
+        "normalized_name": "manoela cel vivo"
+    },
+    {
+        "index": 35,
+        "name": "Manoela Trabalho",
+        "phone": "779988775588",
+        "normalized_name": "manoela trabalho"
+    },
+    {
+        "index": 37,
+        "name": "Maria Cida Cel",
+        "phone": "779988775588",
+        "normalized_name": "maria cida cel"
+    },
+    {
+        "index": 7,
+        "name": "Miguel",
+        "phone": "2222222222",
+        "normalized_name": "miguel"
+    },
+    {
+        "index": 3,
+        "name": "Pablo Cel",
+        "phone": "456789456",
+        "normalized_name": "pablo cel"
+    },
+    {
+        "index": 28,
+        "name": "Paulo Casa",
+        "phone": "779988775588",
+        "normalized_name": "paulo casa"
+    },
+    {
+        "index": 27,
+        "name": "Paulo Cel",
+        "phone": "779988775588",
+        "normalized_name": "paulo cel"
+    },
+    {
+        "index": 21,
+        "name": "Priscila Casa",
+        "phone": "779988775588",
+        "normalized_name": "priscila casa"
+    },
+    {
+        "index": 22,
+        "name": "Priscila Cel",
+        "phone": "779988775588",
+        "normalized_name": "priscila cel"
+    },
+    {
+        "index": 16,
+        "name": "Renato Casa",
+        "phone": "779988775588",
+        "normalized_name": "renato casa"
+    },
+    {
+        "index": 15,
+        "name": "Renato Cel",
+        "phone": "779988775588",
+        "normalized_name": "renato cel"
+    },
+    {
+        "index": 25,
+        "name": "Ricardo Casa",
+        "phone": "779988775588",
+        "normalized_name": "ricardo casa"
+    },
+    {
+        "index": 26,
+        "name": "Ricardo Cel",
+        "phone": "779988775588",
+        "normalized_name": "ricardo cel"
+    },
+    {
+        "index": 10,
+        "name": "Sony Da Silva",
+        "phone": "89658-7456",
+        "normalized_name": "sony da silva"
+    },
+    {
+        "index": 38,
+        "name": "Thayane Cel",
+        "phone": "779988775588",
+        "normalized_name": "thayane cel"
+    },
+    {
+        "index": 48,
+        "name": "\u00darsula Casa",
+        "normalized_name": "ursula casa",
+        "phone": "987455654563"
+    },
+    {
+        "index": 47,
+        "name": "\u00darsula Cel",
+        "normalized_name": "ursula cel",
+        "phone": "987455654563"
     }
 ]

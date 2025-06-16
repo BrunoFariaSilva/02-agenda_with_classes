@@ -7,12 +7,10 @@ Registrar em arquivo local nome e número de telefone
 - Busca de contatos por nome insensível
 
 brunofariasilva@gmail.com
-31/05/2025 - 06/06/2025
+31/05/2025 - 16/06/2025
 
 Problemas conhecidos:
-1 - Listagem alfabética não considera acentos, fazendo com que a lista de nomes que começam
-    com acento comece no final da lista dos que não tem acento   
-2 - Busca não funciona corretamente com acentos
+- 
 
 Implementar:
 - 
