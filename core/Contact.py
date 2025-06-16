@@ -1,3 +1,4 @@
+from core.common import normalize_word
 from core.Dao import Dao
 
 class Contact:
@@ -5,12 +6,14 @@ class Contact:
         ###Construtor do contato
         self.index = index      #Atributos da classe
         self.name = name
+        self.normalized_name = normalize_word(self.name)
         self.phone = phone
 
     def save_to_db(self):
         ###Método para salvar o novo contato no BD
         new_contact_dict = {'index': self.index,  #Dicionário com as informações do contato
                             'name': self.name.title(),
+                            'normalized_name': self.normalized_name,
                             'phone': self.phone}
         dao_conn = Dao()        #Instancia para conexão com a classe DAO
         dao_conn.save_contact(new_contact_dict)  #Solicita a gravação do contato no BD
